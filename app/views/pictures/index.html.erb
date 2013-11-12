@@ -2,8 +2,11 @@
 <ul>
   <% @list_of_pictures.each do |pic| %>
 <li>
-  <img width="200" src= <%= pic.source %>
-  <p><%= pic.caption %></p>  <p><%= pic.source %></p>
+  <image_tag src= <%= pic.source %> width = "200">
+  <p><%= pic.caption %></p>
+  <% link to "Show", "http://localhost:3000/picture_Details/#{pic.id}" %>
+  <% link_to "Edit", "http://localhost:3000/edit_picture_form/#{pic.id}" %>
+  <% link_to "Destroy", "http://localhost:3000/delete_picture/#{pic.id}" %>
 </li>
   <% end %>
 </ul>

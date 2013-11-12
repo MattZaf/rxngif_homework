@@ -18,14 +18,13 @@ class PicturesController < ApplicationController
     p.source = params[:source]
     p.caption = params[:caption]
     p.save
-
-    redirect_to("http://localhost:3000/all_pictures/#{p.id}", { :notice => "Picture created succesfully"})
+    redirect_to("http://localhost:3000/all_pictures", { :notice => "Picture created succesfully"})
   end
 
   def destroy
     p = Picture.find(params[:id])
     p.destroy
-    #redirect_to("http://localhost:3000/all_pictures", { :notice => "Picture has been destroyed"})
+    redirect_to("http://localhost:3000/all_pictures", { :notice => "Picture has been destroyed"})
     #flash[:notice] ="Successful deletion"
   end
 
@@ -39,7 +38,7 @@ class PicturesController < ApplicationController
     p.caption = params[:caption]
     p.save
 
-    redirect_to "http://localhost:300/picture_details/#{p.id}", :notice => "Updated picture successfully."
+    redirect_to "http://localhost:3000/picture_details/#{p.id}", :notice => "Updated picture successfully."
   end
 
 end
